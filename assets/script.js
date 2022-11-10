@@ -48,21 +48,27 @@ function getDays(){
 
             //Getting the min and max values for each day
             for (i = 0; i < 5; i++) {
-                document.getElementById('day' + (i + 1) + 'Min').innerHTML = 'Min: ' + Number(data.list[i].main.temp_min ).toFixed(1) + '°';
+                document.getElementById('day' + (i + 1) + 'Min').innerHTML = 'Min: ' + Number(data.list[i].main.temp_min ).toFixed(0) + '°';
             };
 
             for (i = 0; i < 5; i++) {
-                document.getElementById('day' + (i + 1) + 'Max').innerHTML = 'Max: ' + Number(data.list[i].main.temp_max ).toFixed(2) + '°';
+                document.getElementById('day' + (i + 1) + 'Max').innerHTML = 'Max: ' + Number(data.list[i].main.temp_max ).toFixed(0) + '°';
+                console.log(data.list[i])
             };
             //itterates over the currentData array, writes a p in the html and sets each with a unique id.
-            for (i = 0; i < 4; i++) {
-                const currentData = ['temp', 'wind', 'humid', 'uv']
+            for (i = 0; i < 3; i++) {
+                const currentData = ['temp', 'wind', 'humidity'];
                 const p = document.createElement('p');
                 p.setAttribute('id', currentData[i]);
                 document.getElementById('current-weather').appendChild(p)
+                document.getElementById(currentData[i]).innerHTML = currentData[i]
                 //document.getElementById('day' + (i + 1) + 'Max').innerHTML = 'Max: ' + Number(data.list[i].main.temp_max ).toFixed(2) + '°';
             };
 
+            document.getElementById('temp').insertAdjacentText('afterend', data.list[1].main.temp)
+            document.getElementById('wind').insertAdjacentText('afterend', data.list[1].wind.speed);
+            document.getElementById('humidity').insertAdjacentText('afterend', data.list[1].main.humidity)
+            
             //Getting Weather Icons
             // for (i = 0; i < 5; i++) {
             //     document.getElementById("img" + (i + 1)).innerHTML.src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
