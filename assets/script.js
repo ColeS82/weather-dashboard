@@ -63,17 +63,13 @@ function getDays(){
                 p.setAttribute('id', currentData[i]);
                 document.getElementById('current-weather').appendChild(p)
                 document.getElementById(currentData[i]).innerHTML = currentData[i]
-                //document.getElementById('day' + (i + 1) + 'Max').innerHTML = 'Max: ' + Number(data.list[i].main.temp_max ).toFixed(2) + '°';
+            
             };
 
             document.getElementById('temp').insertAdjacentText('afterend', data.list[1].main.temp)
             document.getElementById('wind').insertAdjacentText('afterend', data.list[1].wind.speed);
             document.getElementById('humidity').insertAdjacentText('afterend', data.list[1].main.humidity)
             
-            //Getting Weather Icons
-            // for (i = 0; i < 5; i++) {
-            //     document.getElementById("img" + (i + 1)).innerHTML.src = "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + ".png";
-            // };
         })
 }
 
