@@ -11,7 +11,7 @@ function getDays(){
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov','Dec'];
 
     const day = now.getDay();
-    const month = now.getUTCMonth() + 1
+    const month = now.getUTCMonth()
     const date = now.getUTCDate() +'/' + months[month] + '/' + now.getUTCFullYear();
 
     
@@ -21,6 +21,7 @@ function getDays(){
         document.getElementById('wday' + (i + 1)).innerHTML = days[(day + i) % days.length]
         console.log(days[(day + i) % days.length])
     }
+    //Creates p element in current-weather
     const p = document.createElement('p');
     p.setAttribute('id', 'date');
     document.getElementById('current-weather').appendChild(p).innerHTML = date
