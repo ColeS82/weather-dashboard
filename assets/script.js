@@ -6,15 +6,24 @@ const $searchBtn = document.getElementById('btn');
 
 function getDays(){
     const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const dayNumber = now.getDay()
+
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov','Dec'];
+
+    const day = now.getDay();
+    const month = now.getUTCMonth() + 1
+    const date = now.getUTCDate() +'/' + months[month] + '/' + now.getUTCFullYear();
+
     
     console.log(dayNumber)
     for (i=0 ; i < 6; i++){
-        
-        document.getElementById("wday" + (i + 1)).innerHTML = days[(dayNumber + i) % days.length]
-        
-        console.log(days[(dayNumber + i) % days.length])
-    }}
+        document.getElementById('wday' + (i + 1)).innerHTML = days[(day + i) % days.length]
+        console.log(days[(day + i) % days.length])
+    }
+    const p = document.createElement('p');
+    p.setAttribute('id', 'date');
+    document.getElementById('current-weather').appendChild(p).innerHTML = date
+
+}
     getDays()
     
     
